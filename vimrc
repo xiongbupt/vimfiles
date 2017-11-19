@@ -42,6 +42,14 @@ Plug 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 " Plugin 'plasticboy/vim-markdown'
 "
+
+Plug 'ervandew/supertab'
+
+"markdown
+Plug 'reedes/vim-pencil'
+Plug 'tpope/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+
 " pandoc相关
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
@@ -126,12 +134,18 @@ Plug 'justinmk/vim-sneak'
 ""语法检查
 Plug 'w0rp/ale'
 
+""python设置
+""vim自动补全
+Plug 'davidhalter/jedi-vim'
+Plug 'python-mode/python-mode'
+
+
 call plug#end()
 "call vundle#end()
 "" svn插件
 "Plugin 'juneedahamed/svnj.vim'
 
-"Plugin 'vimim/vimim'
+"Plugin 'vimim/vimiPlum'
 "Plugin 'vim-scripts/VimIM'
 " vim-scripts repos
 "Plugin 'L9'
@@ -600,8 +614,8 @@ set linebreak
 " html,python,c代码格式化
 noremap <F3> :Autoformat<CR><CR>
 "set formatoptions=croqn2mB1
-set formatoptions=mMtcroqlw
-set textwidth=80
+"set formatoptions=mMtcroqlw
+"set textwidth=80
 
 "UltiSnips设置
 "let g:UltiSnipsUsePythonVersion = 2
@@ -705,5 +719,6 @@ endif
 
 
 
+let g:pymode_python = 'python3'
 
 "let g:fzf_launcher='~/Code/script/iterm2-fzy.sh %s'
