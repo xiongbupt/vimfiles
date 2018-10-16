@@ -19,6 +19,8 @@ if has('win32') || has('win64')
     let $LANG = 'zh_CN.UTF-8'
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
+    let g:XkbSwitchEnabled = 1
+"    let g:XkbSwitchIMappings = ['zh']
 else
     set backupdir=~/.vimbackup/
     set directory=~/.vimbackup/Temp
@@ -28,6 +30,7 @@ endif
 let path='~/.vim/bundle'
 call plug#begin(path)
 
+set noimdisable
 " My bundles here:
 "
 " original repos on GitHub
@@ -66,6 +69,9 @@ Plug 'altercation/vim-colors-solarized'
 
 " 终端颜色添加
 Plug 'chriskempson/base16-vim'
+
+" 输入法自动切换
+Plug 'lyokha/vim-xkbswitch'
 
 "Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': '/usr/local/opt/fzf/install --all' }
 if has("unix")
@@ -136,9 +142,20 @@ Plug 'w0rp/ale'
 
 ""python设置
 ""vim自动补全
-Plug 'davidhalter/jedi-vim'
-Plug 'python-mode/python-mode'
+"Plug 'davidhalter/jedi-vim'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'heavenshell/vim-pydocstring'
 
+"conda python
+Plug 'cjrh/vim-conda'
+
+"solidity
+Plug 'tomlion/vim-solidity'
+
+"vim session
+"Plug 'tpope/vim-obsession'
+"Plug 'dhruvasagar/vim-prosession'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 "call vundle#end()
@@ -700,7 +717,7 @@ let g:rbpt_loadcmd_toggle = 0
 autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  set filetype=markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "set paste
-set clipboard=unnamed
+"set clipboard=unnamed
 
 set updatetime=250
 let g:gitgutter_diff_args = '-w'
@@ -720,5 +737,6 @@ endif
 
 
 let g:pymode_python = 'python3'
+let MRU_Max_Entries = 500
 
 "let g:fzf_launcher='~/Code/script/iterm2-fzy.sh %s'
